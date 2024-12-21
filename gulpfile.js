@@ -96,11 +96,11 @@ function watching() {
       baseDir: "build/"
     }
   });
-  watch(['app/scss/**/*.scss'], styles)
+  watch(['app/scss/**/*.scss', 'app/components/**/*.scss'], styles)
   watch(['app/images/src'], images)
   watch(['app/js/main.js'], scripts)
+  watch(['app/components/**/*.html', 'app/pages/*.html'], pages)
   watch(['app/fonts/**/*.*'], fonts)
-  watch(['app/components/*', 'app/pages/*'], pages)
   watch(['app/*.html']).on('change', browserSync.reload);
 }
 
