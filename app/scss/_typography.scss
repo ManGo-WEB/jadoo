@@ -45,3 +45,10 @@ input {
     line-height: 1.3rem;
     font-weight: 500;
 }
+
+.invisible {
+  width: 0;
+  height: 0;
+  position: absolute;
+  left: -9000px;
+}
