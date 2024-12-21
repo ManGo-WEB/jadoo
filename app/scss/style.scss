@@ -1,0 +1,10 @@
+@use 'reset.scss';
+@use 'variables.scss' as var;
+@use 'typography.scss';
+
+@use 'grid.scss' as grid;
+
+
+body {
+	color: var.$black-color;
+}

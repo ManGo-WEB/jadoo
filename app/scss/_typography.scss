@@ -1,0 +1,47 @@
+// FONTS //
+$primary-font: 'Poppins', sans-serif;
+
+@font-face {
+    font-family: 'Poppins', serif;
+    src: url(fonts/Poppins-Regular.woff2) format('woff2'),
+        url(fonts/Poppins-Regular.woff) format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+body {
+    font-family: $primary-font, sans-serif;
+    font-size: 14px;
+    line-height: 1.6rem;
+    font-weight: 500;
+}
+
+h1 {
+    font-size: 2.9rem;
+    line-height: 3rem;
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 2rem;
+    line-height: 2.9rem;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 1.6rem;
+    line-height: 2.14rem;
+    font-weight: 600;
+}
+
+h4 {
+    font-size: 1.6rem;
+    line-height: 2.14rem;
+    font-weight: 500;
+}
+
+input {
+    font-size: 0.9rem;
+    line-height: 1.3rem;
+    font-weight: 500;
+}

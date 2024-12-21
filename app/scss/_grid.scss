@@ -1,0 +1,6 @@
+@use 'variables.scss' as var;
+
+.container {
+    max-width: var.$container-width;
+    margin: 0 auto;
+}
