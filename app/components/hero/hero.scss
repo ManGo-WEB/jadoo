@@ -84,7 +84,7 @@
       line-height: normal;
       transition: background-color 0.3s ease;
       &:hover {
-        background-color: hsl(41%, 99%, calc(50% - 10%));
+        background-color: var.$darken-accent-color;
       }
     }
     &--play {
