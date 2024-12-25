@@ -3,7 +3,7 @@ const fs = require('fs');
 
 const scss   = require('gulp-sass')(require('sass'));
 const concat = require('gulp-concat');
-const uglify = require('gulp-uglify-es').default; 
+const uglify = require('gulp-uglify-es').default;
 const browserSync = require('browser-sync').create();
 const autoprefixer = require('gulp-autoprefixer');
 const clean = require('gulp-clean');
@@ -36,32 +36,33 @@ function fonts() {
 }
 
 function images(){
-  return src(['app/images/src/*.*', '!app/images/src/*.svg'], { allowEmpty: true })
-    .pipe(newer('build/images'))
+  return src(['app/img/**/*.*', '!app/img/**/*.svg'])
+    .pipe(newer('build/img'))
     .pipe(avif({ quality : 50}))
+    .pipe(dest('build/img'))
 
-    .pipe(src('app/images/src/*.*'))
-    .pipe(newer('build/images'))
+    .pipe(src(['app/img/**/*.*', '!app/img/**/*.svg']))
+    .pipe(newer('build/img'))
     .pipe(webp())
+    .pipe(dest('build/img'))
 
-    .pipe(src('app/images/src/*.*'))
-    .pipe(newer('build/images'))
+    .pipe(src(['app/img/**/*.*', '!app/img/**/*.svg']))
+    .pipe(newer('build/img'))
     .pipe(imagemin())
-
-    .pipe(dest('build/images'))
+    .pipe(dest('build/img'));
 }
 
 function sprite () {
-  return src('app/images/*.svg', { allowEmpty: true })
+  return src('app/img/***.svg')
     .pipe(svgSprite({
       mode: {
         stack: {
-          sprite: '../sprite.svg',
-          example: true 
+          sprite: 'sprite.svg',
+          example: true
         }
       }
     }))
-    .pipe(dest('build/images'))
+    .pipe(dest('build/img'))
 }
 
 function scripts() {
@@ -96,11 +97,11 @@ function watching() {
       baseDir: "build/"
     }
   });
-  watch(['app/scss/**/*.scss'], styles)
-  watch(['app/images/src'], images)
+  watch(['app/scss/**/*.scss', 'app/components/**/*.scss'], styles)
+  watch(['app/img/*.*'], parallel(images, sprite))
   watch(['app/js/main.js'], scripts)
+  watch(['app/components/**/*.html', 'app/pages/*.html'], pages)
   watch(['app/fonts/**/*.*'], fonts)
-  watch(['app/components/*', 'app/pages/*'], pages)
   watch(['app/*.html']).on('change', browserSync.reload);
 }
 
@@ -111,25 +112,31 @@ function cleanBuild() {
 }
 
 function createBuildDir() {
-  const dir = 'build';
-  if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir);
+  if (!fs.existsSync('build')) {
+    fs.mkdirSync('build');
   }
-  ['images', 'fonts', 'js', 'css'].forEach(subDir => {
-    if (!fs.existsSync(`${dir}/${subDir}`)) {
-      fs.mkdirSync(`${dir}/${subDir}`);
-    }
-  });
+  if (!fs.existsSync('build/js')) {
+    fs.mkdirSync('build/js');
+  }
+  if (!fs.existsSync('build/css')) {
+    fs.mkdirSync('build/css');
+  }
+  if (!fs.existsSync('build/fonts')) {
+    fs.mkdirSync('build/fonts');
+  }
+  if (!fs.existsSync('build/img')) {
+    fs.mkdirSync('build/img');
+  }
 }
 
 function building() {
   createBuildDir();
   return src([
     'app/css/style.min.css',
-    '!app/images/**/*.html',
-    'app/images/*.*',
-    '!app/images/*.svg',
-    'app/images/sprite.svg',
+    '!app/img/**/*.html',
+    'app/img/*.*',
+    '!app/img/*.svg',
+    'app/img/sprite.svg',
     'app/fonts/*.*',
     'app/js/main.min.js',
     'app/**/*.html'
@@ -146,5 +153,5 @@ exports.sprite = sprite;
 exports.scripts = scripts;
 exports.watching = watching;
 
-exports.build = series(cleanBuild, building);
-exports.default = series(cleanBuild, parallel(styles, images, fonts, scripts, pages), watching);
+exports.build = series(cleanBuild, parallel(building, images, sprite));
+exports.default = series(cleanBuild, parallel(styles, images, sprite, fonts, scripts, pages), watching);

@@ -1,0 +1,25 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  margin-bottom: 130px;
+  &__nav {
+    display: flex;
+    align-items: center;
+  }
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 55px;
+  }
+  &__user {
+    display: flex;
+    align-items: center;
+    gap:32px;
+  }
+}
+
+.main-menu {
+  margin-right: 86px;
+}

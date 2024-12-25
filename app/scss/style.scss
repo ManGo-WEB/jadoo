@@ -1,8 +1,11 @@
 @use 'reset.scss';
 @use 'variables.scss' as var;
 @use 'typography.scss';
+@use 'sprite-svg.scss';
 
 @use 'grid.scss' as grid;
+@use '../components/hero/hero.scss';
+@use '../components/navbar/navbar.scss';
 
 
 body {

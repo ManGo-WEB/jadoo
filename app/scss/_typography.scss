@@ -1,5 +1,6 @@
 // FONTS //
 $primary-font: 'Poppins', sans-serif;
+$secondary-font: 'Vollkorn', serif;
 
 @font-face {
     font-family: 'Poppins', serif;
@@ -9,9 +10,33 @@ $primary-font: 'Poppins', sans-serif;
     font-style: normal;
 }
 
+@font-face {
+  font-family: 'Poppins', serif;
+  src: url(fonts/Poppins-Medium.woff2) format('woff2'),
+      url(fonts/Poppins-Medium.woff) format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Poppins', serif;
+  src: url(fonts/Poppins-Bold.woff2) format('woff2'),
+      url(fonts/Poppins-Bold.woff) format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Vollkorn', serif;
+  src: url(fonts/Vollkorn-Bold.woff2) format('woff2'),
+      url(fonts/Vollkorn-Bold.woff) format('woff');
+  font-weight: 800;
+  font-style: normal;
+}
+
 body {
     font-family: $primary-font, sans-serif;
-    font-size: 14px;
+    font-size: 16px;
     line-height: 1.6rem;
     font-weight: 500;
 }
@@ -44,4 +69,11 @@ input {
     font-size: 0.9rem;
     line-height: 1.3rem;
     font-weight: 500;
+}
+
+.invisible {
+  width: 0;
+  height: 0;
+  position: absolute;
+  left: -9000px;
 }
