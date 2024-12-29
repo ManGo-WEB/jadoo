@@ -19,11 +19,7 @@
             drop-shadow(0 20px 13px rgba(0, 0, 0, 0.01))
             drop-shadow(0 8.14815px 6.51852px rgba(0, 0, 0, 0.00785185))
             drop-shadow(0 1.85185px 3.14815px rgba(0, 0, 0, 0.00481481));
-    transition: transform 0.3s ease;
 
-    &:hover {
-      transform: translateY(-10px);
-    }
     &:last-child {
       &::after {
         content: "";
