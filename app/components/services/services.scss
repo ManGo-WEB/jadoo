@@ -1,7 +1,9 @@
 @use '../scss/variables' as var;
 
 .services {
-  margin-bottom: 156px;
+  margin-bottom: 123px;
+	background: url('../img/stack/sprite.svg#services-block-bg') no-repeat right top;
+	background-size: 30% auto;
   &__list {
     display: flex;
     gap: 75px;
