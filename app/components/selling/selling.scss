@@ -1,0 +1,87 @@
+@use '../scss/variables' as var;
+
+.selling {
+  margin-bottom: 186px;
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  &__item {
+    position: relative;
+    background: #fff;
+    border-radius: 24px;
+    filter: drop-shadow(0 100px 80px rgba(0, 0, 0, 0.02))
+            drop-shadow(0 64.8148px 46.8519px rgba(0, 0, 0, 0.0151852))
+            drop-shadow(0 38.5185px 25.4815px rgba(0, 0, 0, 0.0121481))
+            drop-shadow(0 20px 13px rgba(0, 0, 0, 0.01))
+            drop-shadow(0 8.14815px 6.51852px rgba(0, 0, 0, 0.00785185))
+            drop-shadow(0 1.85185px 3.14815px rgba(0, 0, 0, 0.00481481));
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: translateY(-10px);
+    }
+    &:last-child {
+      &::after {
+        content: "";
+        position: absolute;
+        width: 98px;
+        height: 254px;
+        background: url('../img/stack/sprite.svg#selling-card-decore') no-repeat center;
+        background-size: contain;
+        right: -60px;
+        top: 50%;
+        transform: translateY(-30%) scale(4.8);
+        z-index: -1;
+      }
+    }
+  }
+
+  &__img {
+    width: 100%;
+  }
+
+  &__body {
+    padding: 27px 20px 47px;
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: 140px 1fr;
+    column-gap: 40px;
+    row-gap: 19px;
+    font-weight: 500;
+    background-color: #fff;
+    border-radius: 0 0 24px 24px;
+  }
+
+  &__tour {
+    display: block;
+    font-size: 18px;
+  }
+
+  &__price {
+    display: block;
+    font-size: 18px;
+    text-align: right;
+  }
+
+  &__trip-lenght {
+    display: block;
+    padding-left: 34px;
+    background: url('../img/stack/sprite.svg#trip-icon') left center no-repeat;
+    background-size: 20px 20px;
+    font-size: 16px;
+  }
+}
+
+.card {
+  &__header {
+    height: 327px;
+    overflow: hidden;
+    border-radius: 24px 24px 0 0;
+  }
+}
+
+
