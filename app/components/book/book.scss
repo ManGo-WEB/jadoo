@@ -1,0 +1,189 @@
+@use '../scss/variables' as var;
+@use '../scss/typography' as typo;
+
+.section {
+  &__book {
+    margin-bottom: 200px;
+  }
+}
+
+.book {
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 118px;
+  }
+  &__title {
+    font-size: 50px;
+    text-transform: capitalize;
+  }
+  &__item {
+    padding-left: 70px;
+    &:not(:last-child) {
+      margin-bottom: 48px;
+    }
+    &--destination {
+      background: url('../img/stack/sprite.svg#book-destination-icon') no-repeat left top;
+      background-size: 68px auto;
+    }
+    &--payment {
+      background: url('../img/stack/sprite.svg#book-payment-icon') no-repeat left top;
+      background-size: 68px auto;
+    }
+    &--airport {
+      background: url('../img/stack/sprite.svg#book-airport-icon') no-repeat left top;
+      background-size: 68px auto;
+    }
+  }
+}
+
+.book-item {
+  &__heading {
+    margin-bottom: 4px;
+    color: var.$base-text-color;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 124.5%; /* 19.92px */
+  }
+  &__description {
+    max-width: 327px;
+    color: var.$base-text-color;
+    font-weight: 400;
+    line-height: 124.5%; /* 19.92px */
+  }
+}
+
+.prev {
+  position: relative;
+  width: 370px;
+  padding: 20px 24px 30px 24px;
+  border-radius: 26px;
+  background: var.$main-bg-color;
+  box-shadow: 0px 100px 80px 0px rgba(0, 0, 0, 0.02), 0px 64.815px 46.852px 0px rgba(0, 0, 0, 0.02), 0px 38.519px 25.481px 0px rgba(0, 0, 0, 0.01), 0px 20px 13px 0px rgba(0, 0, 0, 0.01), 0px 8.148px 6.519px 0px rgba(0, 0, 0, 0.01), 0px 1.852px 3.148px 0px rgba(0, 0, 0, 0.00);
+}
+
+.trip {
+  &__image {
+    width: 100%;
+    margin-bottom: 26px;
+    border-radius: 24px;
+  }
+  &__title {
+    margin-bottom: 13px;
+    font-size: 18px;
+    font-weight: 400;
+  }
+  &__details {
+    margin-bottom: 20px;
+    color: #84829A;
+  }
+  &__date,
+  &__owner {
+    cursor: pointer;
+    transition: color .3s ease-in-out;
+    &:hover {
+      color: #8A79DF;
+    }
+  }
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__like-icon {
+    fill: #4152CA;
+    cursor: pointer;
+  }
+  &__like {
+    svg {
+      fill: #000;
+    }
+    &:hover {
+      svg {
+        fill: var.$accent-color;
+      }
+    }
+  }
+}
+
+.options {
+  margin-bottom: 30px;
+  &__list {
+    display: flex;
+    gap: 18px;
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: #F5F5F5;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+}
+
+.stage {
+  width: 263px;
+  position: absolute;
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+  top: 255px;
+  right: -20%;
+  padding: 16px 25px 22px 25px;
+  border-radius: 18px;
+  background: var.$bg-color;
+  box-shadow: 0px 100px 80px 0px rgba(0, 0, 0, 0.02), 0px 64.815px 46.852px 0px rgba(0, 0, 0, 0.02), 0px 38.519px 25.481px 0px rgba(0, 0, 0, 0.01), 0px 20px 13px 0px rgba(0, 0, 0, 0.01), 0px 8.148px 6.519px 0px rgba(0, 0, 0, 0.01), 0px 1.852px 3.148px 0px rgba(0, 0, 0, 0.00);
+  &__content {
+    flex-shrink: 1;
+    width: 100%;
+  }
+  &__image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  &__status {
+    margin-bottom: 6px;
+    color: #84829A;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 124.5%; /* 17.43px */
+    letter-spacing: -0.49px;
+  }
+  &__title {
+    margin-bottom: 13px;
+    color: var.$black-color;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 124.5%; /* 22.41px */
+    letter-spacing: -0.27px;
+  }
+}
+
+.completed {
+  font-size: 14px;
+  &__status {
+    margin-bottom: 10px;
+  }
+  &__percent {
+    color: var.$secondary-color;
+  }
+}
+
+.progress-bar {
+  width: 100%;
+  height: 5px;
+  background: #F5F5F5;
+  border-radius: 2px;
+}
+
+.progress {
+  height: 100%;
+  background: var.$secondary-color;
+  border-radius: 2px;
+}
