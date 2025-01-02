@@ -1,2 +1,87 @@
 @use '../scss/variables' as var;
 @use '../scss/typography' as typo;
+
+.testimonials {
+  margin-bottom: 100px;
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 124px;
+  }
+  &__title {
+    width: 409px;
+    margin-bottom: 82px;
+    font-size: 50px;
+    line-height: 1.29;
+  }
+  &__items {
+    position: relative;
+    padding-top: 150px;
+  }
+}
+
+.markers {
+  &__list {
+    display: flex;
+    gap: 26px;
+  }
+  &__item {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #E5E5E5;
+    transition: background-color .3s ease-in-out;
+    &--active {
+      background: var.$dark-color;
+    }
+    &:hover {
+      background: var.$dark-color;
+    }
+  }
+}
+
+.testimonial {
+  width: 504px;
+  position: relative;
+  //top: 150px;
+  padding: 28px 34px 34px 34px;
+  border-radius: 10px;
+  background: var.$bg-color;
+  border: 1px solid #efefef;
+  &--active {
+    position: absolute;
+    top: 50px;
+    left: -50px;
+    z-index: 1;
+    box-shadow: 0px 100px 80px 0px rgba(0, 0, 0, 0.02), 0px 64.815px 46.852px 0px rgba(0, 0, 0, 0.02), 0px 38.519px 25.481px 0px rgba(0, 0, 0, 0.01), 0px 20px 13px 0px rgba(0, 0, 0, 0.01), 0px 8.148px 6.519px 0px rgba(0, 0, 0, 0.01), 0px 1.852px 3.148px 0px rgba(0, 0, 0, 0.00);
+  }
+  &__content {
+    margin-bottom: 34px;
+  }
+}
+
+.avatar {
+  position: absolute;
+  top: -34px;
+  left: -34px;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  overflow: hidden;
+  &__image {
+    width: 100%;
+  }
+}
+
+.author {
+  display: flex;
+  flex-direction: column;
+  &__name {
+    font-size: 18px;
+    font-weight: 600;
+    color: var.$dark-color;
+  }
+  &__company {
+    font-size: 14px;
+  }
+}
