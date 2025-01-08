@@ -1,2 +1,112 @@
 @use '../../scss/variables' as var;
+@use 'sass:color';
 
+.subscribe {
+  margin-bottom: 96px;
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    width: 253px;
+    height: 266px;
+    bottom: -170px;
+    right: 100px;
+    background: url('../img/stack/sprite.svg#subscribe-bg') no-repeat;
+  }
+  &__wrapper {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 407px;
+    border-radius: 20px 129px 20px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background:
+      linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8)),
+      url('../img/stack/sprite.svg#subscribe-wrapper-left-bg'),
+      url('../img/stack/sprite.svg#subscribe-wrapper-right-bg'),
+      #DFD7F9;
+    background-position:
+      center,          /* позиция для градиента */
+      left bottom -60px, /* позиция для левого изображения */
+      right top -50px;    /* позиция для правого изображения */
+    background-repeat:
+      repeat,         /* для градиента */
+      no-repeat,      /* для левого изображения */
+      no-repeat;      /* для правого изображения */
+    background-size:
+      auto,     /* размер градиента */
+      389px 397px,    /* размер левого изображения */
+      285px 291px;    /* размер правого изображения */
+  }
+  &__title {
+    margin-bottom: 74px;
+    max-width: 881px;
+    font-size: 33px;
+    font-weight: 600;
+    line-height: 163%;
+    text-align: center;
+    color: #5E6282;
+  }
+}
+
+.form {
+  &__group {
+    display: flex;
+    gap: 24px;
+  }
+  &__input {
+    position: relative;
+    width: 420px;
+    padding: 25px;
+    background: var.$bg-color;
+    border: none;
+    border-radius: 10px;
+    outline: 1px solid transparent;
+    transition: outline .3s ease-in-out;
+    &:focus {
+      outline: 1px solid var.$primary-color;
+    }
+    &-wrapper--email {
+      position: relative;
+      width: 100%;
+      &::before {
+        content: "";
+        position: absolute;
+        width: 24px;
+        height: 24px;
+        top: 50%;
+        left: 25px;
+        transform: translateY(-50%);
+        mask-image: url('../img/stack/sprite.svg#email-icon');
+        mask-repeat: no-repeat;
+        mask-position: center;
+        mask-size: contain;
+        background-color: #5E6282;
+        z-index: 1;
+      }
+    }
+    &--email {
+      padding-left: 66px;
+    }
+  }
+  &__btn {
+    padding: 23px 50px;
+    font-size: 17px;
+    font-weight: 600;
+    border: none;
+    border-radius: 10px;
+    background: var.$light-color;
+    cursor: pointer;
+    transition: background-color .3s ease-in-out;
+    &--accent {
+      background: var.$accent-color;
+      color: var.$bg-color;
+      &:hover {
+        background: color.adjust(var.$accent-color, $lightness: -10%);
+      }
+    }
+  }
+}
