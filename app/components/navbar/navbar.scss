@@ -23,3 +23,10 @@
 .main-menu {
   margin-right: 86px;
 }
+
+.logo {
+  &__img {
+    width: 104px;
+    height: auto;
+  }
+}
