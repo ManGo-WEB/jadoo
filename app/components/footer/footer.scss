@@ -1,0 +1,123 @@
+@use '../../scss/variables' as var;
+
+.footer {
+  position: relative;
+  overflow: hidden;
+  &::after {
+    content: "";
+    position: absolute;
+    width: 490px;
+    height: 490px;
+    bottom: -350px;
+    right: -350px;
+    border-radius: 490px;
+    opacity: 0.8;
+    background: var(--d2, #D5AEE4);
+    filter: blur(75px);
+  }
+  &__content {
+    margin-bottom: 86px;
+    display: grid;
+    grid-template-columns: 207px 1fr 1fr 1fr 221px;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 50px;
+  }
+  &__logo {}
+  &__logo-main {
+    display: block;
+    margin-bottom: 19px;
+    font-size: 44px;
+    font-weight: 600;
+    color: #181E4B;
+  }
+  &__logo-description {
+    display: block;
+    width: 207px;
+    font-size: 13px;
+    line-height: 124%;
+    font-weight: 400;
+    color: var.$base-text-color;
+  }
+  &__copyright {
+    margin-bottom: 70px;
+    text-align: center;
+    font-size: 14px;
+    color: var.$base-text-color;
+  }
+}
+
+.footer-nav {
+  &__title {
+    margin-bottom: 34px;
+    font-size: 21px;
+    line-height: 125%;
+    font-weight: 600;
+    color: var.$dark-color;
+  }
+  &__item {
+    margin-bottom: 12px;
+    font-size: 18px;
+    font-weight: 400;
+    color: var.$base-text-color;
+  }
+}
+
+.social {
+  &__list {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 41px;
+    height: 41px;
+    border-radius: 50%;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, .1);
+    transition: background .3s ease-in-out;
+    &:hover {
+      background: conic-gradient(from 180deg at 50% 50%, #B8D2F1 0deg, #F289AA 60.00000178813934deg, #C68BF0 106.09081864356995deg, #D164DA 153.7500035762787deg, #C963E8 221.24999284744263deg, #BFC2E8 258.75deg, #FFC999 288.7499928474426deg, #D0D8C9 315deg, #BAD0F1 334.13365602493286deg, #CED8CB 358.9677572250366deg, rgba(255, 255, 255, 0.00) 360deg);
+      .social__icon {
+        background-color: var.$bg-color;
+      }
+    }
+  }
+  &__icon {
+    display: block;
+    width: 16px;
+    height: 16px;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    mask-size: contain;
+    background-color: #000; // базовый цвет иконки
+    transition: background-color 0.3s ease;
+    &--fb {
+      mask-image: url('../img/stack/sprite.svg#facebook-Icon');
+    }
+    &--instagram {
+      mask-image: url('../img/stack/sprite.svg#instagram-icon');
+    }
+    &--twitter {
+      mask-image: url('../img/stack/sprite.svg#twitter-icon');
+    }
+  }
+  &__title {
+    margin-bottom: 16px;
+    font-size: 20px;
+    color: var.$base-text-color;
+  }
+}
+
+.apps {
+  display: flex;
+  gap: 7px;
+  &__item {
+    width: 107px;
+  }
+  &__img {
+    width: 107px;
+  }
+}
